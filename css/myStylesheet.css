@@ -1,0 +1,30 @@
+*,::before,::after{
+    box-sizing: inherit;
+}
+
+html{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    border: 16px;
+}
+
+div.gridContainer{
+    display: flex;
+    width: 600px;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 1px;
+    gap: 1px;
+    /* justify-content: center; */
+    align-items: flex-start;
+    background-color: gray;
+}
+
+.gridCell{
+    background-color: white;
+}
