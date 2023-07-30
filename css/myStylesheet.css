@@ -28,3 +28,7 @@ div.gridContainer{
 .gridCell{
     background-color: white;
 }
+
+.gridCellDefaultChangeColor{
+    background-color: black;
+}
