@@ -10,7 +10,7 @@ html{
 main{
     display: flex;
     justify-content: center;
-    border: 16px;
+    padding: 20px;
 }
 
 div.gridContainer{

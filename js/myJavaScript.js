@@ -1,6 +1,7 @@
 
 
 const GRID_WIDTH = 600;
+let cellColor = "black";
 
 function createGrid(gridSize){
     const gridContainer = document.querySelector(".gridContainer");
@@ -20,9 +21,13 @@ function createGrid(gridSize){
     gridCell.setAttribute("style", `height: ${gridCellHeight}px; width: ${gridCellWidth}px;`);
     for(let i = 1; i <= numberOfGridCells; i++){
         let p = gridCell.cloneNode(true);
-
         p.addEventListener("mouseover", (e) => {
-            p.classList.add("gridCellDefaultChangeColor");
+            if(cellColor !== "black"){
+                p.style.backgroundColor = gridCellRandomRGBChangeColor();
+            }else{
+                p.style.backgroundColor = cellColor;
+            }
+            // p.classList.add("gridCellDefaultChangeColor");
         });
 
         gridContainer.appendChild(p);
@@ -41,9 +46,30 @@ function changeGridDensity(event){
     }
 }
 
-function runProgram(){
+function gridCellRandomRGBChangeColor(){
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let rgbString = `rgb(${x},${y},${z})`;
+    return rgbString;
+}
+
+function setButtonEvents(){
     let button = document.querySelector(".gridDensity");
     button.addEventListener("click", changeGridDensity);
+
+    button = document.querySelector(".blackCellColor");
+    button.addEventListener("click", (e) => {cellColor="black"});
+
+    button = document.querySelector(".rgbCellColor");
+    button.addEventListener("click", (e) => {cellColor=gridCellRandomRGBChangeColor()});
+    
+}
+
+function runProgram(){
+    
+    setButtonEvents();
+
     createGrid(16);
 }
 
