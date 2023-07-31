@@ -54,6 +54,14 @@ function gridCellRandomRGBChangeColor(){
     return rgbString;
 }
 
+function clearAllCellColor(){
+    let gridContainer = document.querySelector(".gridContainer");
+    let children = gridContainer.children;
+    for(let i = 0; i < children.length; i++){
+        children[i].style.backgroundColor = "white";
+    }
+}
+
 function setButtonEvents(){
     let button = document.querySelector(".gridDensity");
     button.addEventListener("click", changeGridDensity);
@@ -62,14 +70,14 @@ function setButtonEvents(){
     button.addEventListener("click", (e) => {cellColor="black"});
 
     button = document.querySelector(".rgbCellColor");
-    button.addEventListener("click", (e) => {cellColor=gridCellRandomRGBChangeColor()});
-    
+    button.addEventListener("click", (e) => {cellColor="randomRGB"});
+
+    button = document.querySelector(".clearAllCells");
+    button.addEventListener("click", clearAllCellColor);
 }
 
 function runProgram(){
-    
     setButtonEvents();
-
     createGrid(16);
 }
 
