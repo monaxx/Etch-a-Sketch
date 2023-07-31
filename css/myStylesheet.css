@@ -16,15 +16,15 @@ main{
 div.gridContainer{
     display: flex;
     width: 600px;
-    height: auto;
+    height: 600px;
     flex-wrap: wrap;
     padding: 1px;
     gap: 1px;
-    /* justify-content: center; */
     align-items: flex-start;
     background-color: gray;
+    flex-shrink: 0;
 }
 
 .gridCell{
-    background-color: white;
+    background-color: rgb(255,255,255);
 }
